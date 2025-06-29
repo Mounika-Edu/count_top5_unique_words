@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.time.LocalDateTime;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,7 +30,7 @@ public class CountTop5UniqueWordsApplication {
 	        "again", "further", "then", "once", "here", "there", "when", "where", "why", "how",
 	        "all", "any", "both", "each", "few", "more", "most", "other", "some", "such",
 	         "nor", "not", "only", "own", "same",  "than", "too", "very",
-	        "can", "will", "just", "don", "should", "now",
+	        "can", "will", "just", "don", "should", "now","what","which","their","upon",
 	         "she",  "they",  "you",  "him", "her",  "them",
 	        "and",  "but", "if", "because",  "until", "while",
 	        "the", "for","that","his","this","had","have","this","that",
@@ -40,6 +41,7 @@ public class CountTop5UniqueWordsApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CountTop5UniqueWordsApplication.class, args);
+		log.info("Start time "+LocalDateTime.now());
 		try (InputStream inputStream = CountTop5UniqueWordsApplication.class.getClassLoader().getResourceAsStream("moby.txt")) {
 
             if (inputStream == null) {
@@ -111,7 +113,7 @@ public class CountTop5UniqueWordsApplication {
         } catch (Exception e) {
         	log.error("Exception Occured while processing the input {} ",e);        
         }
-
+	log.info("end time  "+LocalDateTime.now());
 	}
 
 }
