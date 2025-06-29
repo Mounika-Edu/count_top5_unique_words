@@ -73,7 +73,6 @@ public class CountTop5UniqueWordsApplication {
 
             List<Map.Entry<String, Integer>> sortedByFreq = new ArrayList<>(wordFreq.entrySet());
             sortedByFreq.sort((a, b) -> b.getValue().compareTo(a.getValue()));
-            log.info("Total Word Count excluding filtered words and including numbers : {} ",totalWordCount);
             long numberWordCount = wordFreq.keySet().stream()
                     .filter(word -> word.matches("\\d+")) 
                     .count();            
@@ -108,8 +107,6 @@ public class CountTop5UniqueWordsApplication {
                     .collect(Collectors.toList());
 
            String uniqueWordsWithNumbersResult = String.join(", ", uniqueWordsWithNumbers);
-           log.info("words with numbers : {} ",uniqueWordsWithNumbersResult);
-
         } catch (Exception e) {
         	log.error("Exception Occured while processing the input {} ",e);        
         }
